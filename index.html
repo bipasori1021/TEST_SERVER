@@ -1,35 +1,168 @@
-<!doctype html>
-<html> 
-    <head>
-        <title>Example: 2-5</title>
-    </head>
-    <body>
-        <h1>Menu</h1>
-        <a href="#index1">Coffee</a><br>
-        <a href="#index2">Cake</a><br>
-        <a href="#index3">Juice</a><br>
+뽀블로그
+TISTORY BLOG
+HOME CONTACT SETTING LOGIN
+Search
+CATEGORIES
+Algorithm
+영어공부
+AI
+Web
+ spring
+ javaScript
+ others
+CS
+모아보기
+외부링크
+[Js/Jquery/html/css] Tab만들기
+2021. 12. 10. 15:21
+<미리보기>
 
-        
-        <h2 id="index1">Menu01::Coffee</h2>
-        <ul>
-            <li>Americano</li>
-            <li>Cappuccino</li>
-            <li>Cafe latte</li>
-        </ul>
-        
-        <h2 id="index2">Menu02::Cake</h2>
-        <ul>
-            <li>Carrot cake</li>
-            <li>black tea cake</li>
-            <li>Strawberry shortcake</li>
-        </ul>
-        
-        <h2 id="index3">Menu03::Juice</h2>
-        <ul>
-            <li>orange</li>
-            <li>grape</li>
-            <li>watermelon</li>
+ 가장 간단한 탭 만들기를 해보겠습니다.
+
+<코드>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+    <style>
+        body{
+	margin-top: 100px;
+	font-family: 'Trebuchet MS', serif;
+	line-height: 1.6
+}
+.container{
+	width: 500px;
+	margin: 0 auto;
+}
+
+ul.tabs{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+ul.tabs li{
+	background: none;
+	color: #222;
+	display: inline-block;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+ul.tabs li.current{
+	background: #ededed;
+	color: #222;
+}
+
+.tab-content{
+	display: none;
+	background: #ededed;
+	padding: 15px;
+}
+
+.tab-content.current{
+	display: inherit;
+}
+      </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="tab-link current" data-tab="tab-1">메뉴1</li>
+            <li class="tab-link" data-tab="tab-2">메뉴2</li>
+            <li class="tab-link" data-tab="tab-3">메뉴3</li>
         </ul>
 
-    </body>
+        <div id="tab-1" class="tab-content current">tab1입니다.</p></div>
+        <div id="tab-2" class="tab-content"><p>tab2입니다.</p></div>
+        <div id="tab-3" class="tab-content"><p>tab3입니다.</p></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('ul.tabs li').click(function(){
+                var tab_id = $(this).attr('data-tab');
+
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+
+                $(this).addClass('current');
+                $("#"+tab_id).addClass('current');
+            });
+
+        });
+        
+      </script>
+</body>
 </html>
+ 
+
+ 
+
+<설명>
+[html]
+
+1. <ul><li>형식으로 탭 매뉴를 만들어줍니다
+
+2. <div> 형식으로 탭 content를 만들어줍니다.
+
+3.  첫번째 탭의 class에 current를 넣어줍니다.
+
+ 
+
+[css]
+
+1. 모든 탭 메뉴<li> 와내용<div> 를표시: 으로 설정해줍니다 없음.
+
+2. 클래스 에 현재 가 붙혀있는 것은 표시: 로 표출합니다 상속.
+
+ 
+
+[jav스크립트]
+
+1. 탭을 클릭하면 해당 탭의 data-tab을 가져옵니다.
+
+2. 모든 탭 메뉴<li> 와 내용 <div> 현재 클래스 를 없애줍니다를 에합니다. -> 클래스 제거
+
+3. 클릭한 탭($.(this))의 클래스에 addClass를 이용해 current를 붙혀줍니다.
+
+4. id는 #을 붙혀줘야하기 때문에 "#"을 붙히고 tab_id인 id를 가진 <div>에 current를 붙혀줍니다.
+
+ 
+
+다음에는 callback함수와 플러그인으로 탭을 구현해보겠습니다~!
+
+ 
+
+
+좋아요2
+공유하기게시글 관리
+구독하기
+'웹 > 자바스크립트' '
+[자바스크립트/용어정리] 동기(동기식) vs 비동기(동기식) (0) 2021.03.31
+[Js/Jquery/html/css] 레이어창/모달 레이어창 구현하기  (0)	2021.01.27
+TAG#CSS, HTML, 자바스크립트, 자바스크립트 탭만들기,   
+뒤늦은 기사 더보기
+
+
+뽀블로그
+뽀블러 님의 블로그입니다.
+
+구독하기
+댓글
+이름을 입력해주세요.
+비밀번호을 입력해주세요.
+내용을 입력해주세요.
+비공개
+알려드립니다
+기록 보관소
+2022/08 (3) 2022/01 (4) 2021/12 (10) 2021/11 (5) 2021/09 (2)
+최근 게시물
+[깃] 푸시 한 커밋 메시지 수정하기 [JPA] 페이지화 가능한 정렬 조건 여러개 주기 ⋯ 깃앤도커앤젠킨스 을 이용한 CI/CD [프로그래머/2020 ⋯] 50.카카오 인턴십 [프로그래머/2019 KAKO BLIND  blind
+최근 주석
+요약 잘하셨네요 감사합니다~!! 잘보고 갑니다~ 네 ㅎㅎ :) 잘 보고갑니다 :)
+
+Today 33 어제 83 모두 53,980
+티스토리 친구하기
+BANANA에 의해 생성됨
+
